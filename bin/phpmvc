@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+
+
+$autoloadFiles = [
+    __DIR__ . '/../vendor/autoload.php', 
+    __DIR__ . '/../../../autoload.php',   
+];
+
+$autoloaderFound = false;
+foreach ($autoloadFiles as $file) {
+    if (file_exists($file)) {
+        require $file;
+        $autoloaderFound = true;
+        break;
+    }
+}
+
+if (!$autoloaderFound) {
+    fwrite(STDERR, "Erreur : L'autoloader Composer n'a pas été trouvé.\n");
+    fwrite(STDERR, "Lancez 'composer install' d'abord.\n");
+    exit(1);
+}
+
+use PhpMvc\Console\Application;
+
+$application = new Application();
+$application->run();
