@@ -1,5 +1,5 @@
 {
-    "name": "votre-username/phpmvc",
+    "name": "stanislasdevfr/phpmvc",
     "description": "A lightweight PHP MVC project generator with Bootstrap and authentication",
     "type": "library",
     "keywords": ["php", "mvc", "generator", "bootstrap", "framework", "cli"],
