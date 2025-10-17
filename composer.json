@@ -1,17 +1,20 @@
 {
-    "name": "phpmvc/phpmvc",
-    "description": "Un générateur MVC léger pour PHP avec Bootstrap et authentification",
+    "name": "votre-username/phpmvc",
+    "description": "A lightweight PHP MVC project generator with Bootstrap and authentication",
     "type": "library",
+    "keywords": ["php", "mvc", "generator", "bootstrap", "framework", "cli"],
+    "homepage": "https://github.com/stanislasdevfr/phpmvc",
     "license": "MIT",
     "authors": [
         {
-            "name": "StanislasDev",
-            "email": "duartestanislas.pro@gmail.com"
+            "name": "Stanislas Duarte",
+            "email": "duartestanislas.pro@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
         "php": ">=8.0",
-        "symfony/console": "^6.0"
+        "symfony/console": "^6.0|^7.0"
     },
     "autoload": {
         "psr-4": {
@@ -19,5 +22,6 @@
         }
     },
     "bin": ["bin/phpmvc"],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
