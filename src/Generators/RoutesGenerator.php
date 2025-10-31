@@ -6,13 +6,13 @@ class RoutesGenerator
 {
     private string $projectPath;
     private array $entities;
-    private bool $withAuth;  // ← NOUVEAU
+    private bool $withAuth;
 
     public function __construct(string $projectPath, array $entities, bool $withAuth = false)
     {
         $this->projectPath = $projectPath;
         $this->entities = $entities;
-        $this->withAuth = $withAuth;  // ← NOUVEAU
+        $this->withAuth = $withAuth;
     }
 
     public function generate(): void
@@ -26,6 +26,17 @@ class RoutesGenerator
     private function buildRoutesFile(): string
     {
         $routes = '';
+        
+        // Home route - redirect to first entity
+        if (!empty($this->entities)) {
+            $firstEntity = $this->entities[0];
+            $firstEntityName = $firstEntity['name'];
+            $firstEntityLower = strtolower($firstEntityName);
+            
+            $routes .= "// Home route - redirect to first entity\n";
+            $routes .= "\$router->get('/', '{$firstEntityName}Controller', 'index');\n";
+            $routes .= "\n";
+        }
 
         // Auth routes if enabled
         if ($this->withAuth) {
